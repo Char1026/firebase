@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Firebase Web Quickstart</title>
+</head>
+<body>
+   
+   <h1 id="ayy"></h1>
+   
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAmPNlYFxQNFQzfyvNoeu1GQkbrTkveeQA",
+    authDomain: "web-quickstart-493d5.firebaseapp.com",
+    databaseURL: "https://web-quickstart-493d5.firebaseio.com",
+    projectId: "web-quickstart-493d5",
+    storageBucket: "",
+    messagingSenderId: "441897440029"
+  };
+  firebase.initializeApp(config);
+    
+    var ayy = document.getElementById('ayy');
+    var dbRef = firebase.database().ref().child('text');
+    dbRef.on('value', snap => ayy.innerText = snap.val());
+    
+    var url = "https://web-quickstart-493d5.firebaseio.com";
+    var ref = new Firebase(url);
+    ref.on('value', function( snapshot ){
+    var data = JSON.stringify( snapshot.val() );
+  console.log( data );
+});
+    
+</script>
+    
+</body>
+</html>
